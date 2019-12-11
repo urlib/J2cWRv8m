@@ -1,0 +1,11 @@
+{
+	"product": "Windows面板",
+	"setup_path": "C:/BtSoft",
+	"language": "Simplified_Chinese",
+	"title": "宝塔Windows面板",
+	"brand": "宝塔",
+	"template": "default",
+	"logs_path": "C:/BtSoft/wwwlogs",
+	"home": "http://www.bt.cn",
+	"recycle_bin": true
+}

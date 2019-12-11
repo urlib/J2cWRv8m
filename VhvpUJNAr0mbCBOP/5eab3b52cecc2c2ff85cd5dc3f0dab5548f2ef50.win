@@ -1,0 +1,186 @@
+[
+  {
+    "name": "ZendGuardLoader",
+    "versions": [ "53", "54"],
+    "type": "脚本解密",
+    "msg": "用于解密ZendGuard加密脚本!",
+    "shell": "zend_guard_loader.sh",
+    "check": "ZendLoader.dll"
+  },
+  {
+    "name": "ZendOptimizer",
+    "versions": [ "52" ],
+    "type": "脚本解密",
+    "msg": "用于解密ZendOptimizer加密脚本!",
+    "shell": "zend_optimizer.sh",
+    "check": "ZendExtensionManager.dll"
+  },
+  {
+    "name": "ionCube",
+    "versions": [ "52", "53", "54", "55", "56", "70", "71" ],
+    "type": "脚本解密",
+    "msg": "用于解密ionCube Encoder加密脚本!",
+    "shell": "ioncube.sh",
+    "check": "php_ioncube.dll"
+  },
+  {
+    "name": "fileinfo",
+    "versions": [ "53", "54", "55", "56", "70", "71", "72", "73" ],
+    "type": "通用扩展",
+    "msg": "用于获取文件MIME,编码等信息!",
+    "shell": "fileinfo.sh",
+    "check": "php_fileinfo.dll"
+  },
+  {
+    "name": "opcache",
+    "versions": ["55", "56", "70", "71", "72", "73" ],
+    "type": "缓存器",
+    "msg": "用于加速PHP脚本!",
+    "shell": "opcache.sh",
+    "check": "php_opcache.dll"
+  },
+  {
+    "name": "xcache",
+    "versions": [ "52", "53", "54", "55", "56" ],
+    "type": "缓存器",
+    "msg": "支持脚本缓存和变量缓存!",
+    "shell": "xcache.sh",
+    "check": "php_xcache.dll"
+  },
+  {
+    "name": "memcache",
+    "versions": [ "53", "54", "55", "56", "70", "71", "72", "73" ],
+    "type": "缓存器",
+    "msg": "强大的内容缓存器,不支持集群",
+    "shell": "memcache.sh",
+    "check": "php_memcache.dll"
+  },
+  {
+    "name": "redis",
+    "versions": [ "53", "54", "55", "56", "70", "71", "72", "73" ],
+    "type": "缓存器",
+    "msg": "更强大的内容缓存器,支持集群",
+    "shell": "redis.sh",
+    "check": "php_redis.dll"
+  },
+  {
+    "name": "apc",
+    "versions": [ "53", "54" ],
+    "type": "缓存器",
+    "msg": "脚本缓存器",
+    "shell": "apc.sh",
+    "check": "php_apc.dll"
+  },
+  {
+    "name": "apcu",
+    "versions": [ "55","56","70","71","72", "73" ],
+    "type": "缓存器",
+    "msg": "脚本缓存器",
+    "shell": "apc.sh",
+    "check": "php_apcu.dll"
+  },
+  {
+    "name": "imagemagick",
+    "versions": [ "53", "54", "55", "56", "70", "71", "72", "73" ],
+    "type": "通用扩展",
+    "msg": "比GD更强大的图形库",
+    "shell": "imagemagick.sh",
+    "check": "php_imagick.dll"
+  },
+  {
+    "name": "xdebug",
+    "versions": [ "53", "54", "55", "56", "70", "71", "72", "73" ],
+    "type": "调试器",
+    "msg": "不多说,不了解的不要安装",
+    "shell": "xdebug.sh",
+    "check": "php_xdebug.dll"
+  },
+  {
+    "name": "imap",
+    "versions": [ "53", "54", "55", "56", "70", "71", "72", "73" ],
+    "type": "邮件服务",
+    "msg": "邮件服务器必备",
+    "shell": "imap.sh",
+    "check": "php_imap.dll"
+  },
+  {
+    "name": "exif",
+    "versions": [ "53", "54", "55", "56", "70", "71", "72", "73" ],
+    "type": "通用扩展",
+    "msg": "用于读取图片EXIF信息",
+    "shell": "exif.sh",
+    "check": "php_exif.dll"
+  },
+  {
+    "name": "intl",
+    "versions": [ "53", "54", "55", "56", "70", "71", "72", "73" ],
+    "type": "通用扩展",
+    "msg": "提供国际化支持",
+    "shell": "intl.sh",
+    "check": "php_intl.dll"
+  },
+  {
+    "name": "xsl",
+    "versions": [ "52", "53", "54", "55", "56", "70", "71", "72", "73" ],
+    "type": "通用扩展",
+    "msg": "xsl解析扩展",
+    "shell": "xsl.sh",
+    "check": "php_xsl.dll"
+  },
+  {
+    "name": "sg11",
+    "versions": [ "52", "53", "54", "55", "56", "70", "71", "72", "73" ],
+    "type": "脚本加密",
+    "msg": "php代码混淆加密",
+    "shell": "sg11",
+    "check": "ixed.[version].win"
+  },
+  {
+    "name": "yac",
+    "versions": [ "53", "54", "55", "56", "70", "71", "72" ],
+    "type": "缓存器",
+    "msg": "高性能无锁共享内存Cache",
+    "shell": "yac.sh",
+    "check": "php_yac.dll"
+  },
+  {
+    "name": "yaf",
+    "versions": [ "53", "54", "55", "56", "70", "71", "72", "73" ],
+    "type": "框架",
+    "msg": "Yaf是一个C语言编写的PHP框架",
+    "shell": "yaf.sh",
+    "check": "php_yaf.dll"
+  },
+  {
+    "name": "phalcon",
+    "versions": [ "70", "71", "72", "73" ],
+    "type": "框架",
+    "msg": "phalcon是一个C语言编写的PHP框架",
+    "shell": "phalcon.sh",
+    "check": "php_phalcon.dll"
+  },
+  {
+    "name": "mongo",
+    "versions": [ "55", "56", "70", "71", "72", "73" ],
+    "type": "通用扩展",
+    "msg": "Mongodb数据库连接驱动",
+    "shell": "mongo.sh",
+    "check": "php_mongodb.dll"
+  },
+  {
+    "type": "通用扩展",
+    "name": "pgsql",
+    "versions": [ "72", "73" ],
+    "check": "php_pgsql.dll",
+    "shell": "pgsql.sh",
+    "msg": "php官方扩展(需提前安装postgresql)"
+  },
+  {
+    "type": "通用扩展",
+    "name": "pdo_pgsql",
+    "versions": [ "72", "73" ],
+    "check": "php_pdo_pgsql.dll",
+    "shell": "pdo_pgsql.sh",
+    "msg": "php官方扩展(需提前安装postgresql)"
+  }
+]

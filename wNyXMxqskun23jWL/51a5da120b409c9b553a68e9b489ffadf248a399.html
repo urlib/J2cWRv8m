@@ -1,0 +1,149 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>{{g.title}}</title>
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+    <link href="/static/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/site.css?date={{g['version']}}" rel="stylesheet">
+    <link href="/static/codemirror/lib/codemirror.css" rel="stylesheet">
+    <!--[if lte IE 9]>
+    <script src="/static/js/requestAnimationFrame.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        .top-tips {
+            height: 50px;
+            width: 100%;
+            color: red;
+            position: fixed;
+            top: 0;
+            z-index: 999;
+            background-color: white;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="bt-warp bge6">
+        <div class="top-tips">当前IE浏览器版本过低,部分功能无法展示,请更换至其他浏览器，国产浏览器请使用极速模式！</div>
+        <a style="display:none;" id="request_token_head" token="{{session['request_token_head']}}"></a>
+        <div id="container" class="container-fluid {% if 'tmp_login' in session %}group-control{% endif %}">
+            <div class="sidebar-scroll{% if 'tmp_login' in session %}-panel{% endif %}">
+                <div class="sidebar-auto">
+                    <div id="task" class="task cw" onclick="messagebox()"></div>
+                    <h3 class="mypcip"><span class="f14 cw">{{session['address']}}</span></h3>
+                    <ul class="menu">
+                        {% for menu in session['menus'] %}
+                        {% if menu['class'] == 'menu_exit' %}
+                        {% if not 'tmp_login' in session %}
+                        {% if menu['href'] == g.uri %}
+                        <li id="{{menu['id']}}" class="current"> <a class="{{menu['class']}}" href="{{menu['href']}}">{{menu['title']}}</a></li>
+                        {% else %}
+                        <li id="{{menu['id']}}"> <a class="{{menu['class']}}" href="{{menu['href']}}">{{menu['title']}}</a></li>
+                        {% endif %}
+                        {% endif %}
+                        {% else %}
+                        {% if menu['href'] == g.uri %}
+                        <li id="{{menu['id']}}" class="current"> <a class="{{menu['class']}}" href="{{menu['href']}}">{{menu['title']}}</a></li>
+                        {% else %}
+                        <li id="{{menu['id']}}"> <a class="{{menu['class']}}" href="{{menu['href']}}">{{menu['title']}}</a></li>
+                        {% endif %}
+                        {% endif %}
+
+                        {% endfor %}
+                    </ul>
+                    <div id="newbtpc"></div>
+                    <div class="btpc-plus" onclick="bindBTPanel(0,'b')">+</div>
+                </div>
+            </div>
+            <button style="display: none;" id="bt_copys" class="bt_copy" data-clipboard-text=""></button>
+            <a style="display: none;" id="defaultPath">{{session['config']['sites_path']}}</a>
+            <script src="/static/js/jquery-1.10.2.min.js"></script>
+            <script src="/static/js/bootstrap.min.js"></script>
+            <script src="/static/language/{{session['lan']}}/lan.js?date={{g['version']}}"></script>
+            <script src="/static/layer/layer.js?date={{g['version']}}"></script>
+            <script type="text/javascript" src="/static/laydate/laydate.js?date=20180301"></script>
+            <script src="/static/js/jquery.fly.min.js"></script>
+            <script src="/static/codemirror/lib/codemirror.js"></script>
+            <script src="/static/codemirror/addon/edit/editAll.js"></script>
+            <script src="/static/codemirror/mode/modeAll.js"></script>
+            <script src="/static/codemirror/addon/dialog/dialog.js"></script>
+            <script src="/static/codemirror/addon/search/search.js"></script>
+            <script src="/static/codemirror/addon/scroll/annotatescrollbar.js"></script>
+            <script src="/static/js/jquery.qrcode.min.js"></script>
+            <script src="/static/js/socket.io.min.js"></script>
+            <script src="/static/js/clipboard.min.js"></script>
+            <script src="/static/js/public.js?date={{g['version']}}"></script>
+            <script src="/static/js/public_backup.js?date={{g['version']}}"></script>
+            <script src="/static/js/bt_upload.js?date={{g['version']}}"></script>
+            {% block content %}{% endblock %}
+            <div class="footer bgw">宝塔Windows面板 &copy;2014-{{session['yaer']}} 宝塔 (bt.cn)<a style="margin-left:20px;color:#20a53a;" href="http://www.bt.cn/bbs" target="_blank">问题求助 | 产品建议请上宝塔论坛</a><a style="margin-left:20px;color:#20a53a;" href="http://docs.bt.cn" target="_blank">《使用手册》</a></div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    if (navigator.appName == "Microsoft Internet Explorer" && parseInt(navigator.appVersion.split(";")[1].replace(/[ ]/g, "").replace("MSIE", "")) <= 9) {
+        $(".main-content").css("margin-top","50px");
+        $('.top-tips').show();
+    }
+
+    var setup_path = "{{g['setup_path']}}"
+    var recycle_bin_open = "{{g['recycle_bin_open']}}"
+    bt.os = "Windows"
+    $("#setBox").click(function () {
+        if ($(this).prop("checked")) {
+            $("input[name=id]").prop("checked", true)
+        } else {
+            $("input[name=id]").prop("checked", false)
+        }
+    });
+    setCookie('order', 'id desc');
+
+
+</script>
+
+
+<style type="text/css">
+
+    .contextmenu {
+        position: absolute;
+        width: 120px;
+        background: #FFFFFF;
+        border-radius: 5px;
+        overflow: hidden;
+        z-index: 99999999;
+    }
+
+    .contextmenu li {
+        border-left: 3px solid transparent;
+        transition: ease 0.3s;
+    }
+
+    .contextmenu li:hover {
+        background: #707070;
+        border-left: 3px solid #333;
+    }
+
+    .contextmenu li a {
+        display: block;
+        padding: 5px 10px;
+        color: #000000;
+        text-decoration: none;
+        transition: ease 0.3s;
+        cursor:default;
+    }
+
+    .contextmenu li:hover a {
+        color: #fff;
+    }
+    </style>
+
+{% block scripts %}{% endblock %}

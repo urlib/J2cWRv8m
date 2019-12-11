@@ -1,0 +1,32 @@
+[
+  {
+    "title": "远程代码执行高危漏洞(CVE-2019-0708)",
+    "os": [ "Windows 2003", "Windows XP", "Windows Server 2008 R2", "Windows Server 2008", "Windows 7" ],
+    "patch": "KB4499175",
+    "level": 1,
+    "ps": "微软官方紧急发布安全补丁，修复了一个Windows远程桌面服务的远程代码执行漏洞(CVE-2019-0708)，该漏洞影响了某些旧版本的Windows系统。此漏洞是预身份验证，无需用户交互。当未经身份验证的攻击者使用RDP（常见端口3389）连接到目标系统并发送特制请求时，可以在目标系统上执行任意命令。甚至传播恶意蠕虫，感染内网其他机器。类似于2017年爆发的WannaCry等恶意勒索软件病毒。",
+    "downurl": { "Windows Server 2008 R2": "http://download.windowsupdate.com/d/msdownload/update/software/secu/2019/05/windows6.1-kb4499175-x64_3704acfff45ddf163d8049683d5a3b75e49b58cb.msu" }
+  },
+  {
+    "title": "内网大杀器利用：CVE-2019-1040漏洞",
+    "os": [ "Windows Server 2008 R2", "Windows Server 2008", "Windows Server 2012 R2", "Windows Server 2012", "Windows Server 2016", "Windows Server 2019" ],
+    "patch": {
+      "Windows Server 2008 R2": "KB4503269",
+      "Windows Server 2008": "KB4503287",
+      "Windows Server 2012 R2": "KB4503290",
+      "Windows Server 2012": "KB4503263",
+      "Windows Server 2016": "KB4503267",
+      "Windows Server 2019": "KB4503327"
+    },
+    "level": 1,
+    "ps": "微微软官方在6月补丁日中，发布了一枚重磅漏洞CVE-2019-1040的安全补丁。该漏洞存在于Windows大部分版本中，攻击者可以利用该漏洞可绕过NTLM MIC的防护机制，结合其他漏洞和机制，某些场景下可以导致域内的普通用户直接获取对于域控服务器的控制",
+    "downurl": {
+      "Windows Server 2008 R2": [ "http://download.windowsupdate.com/d/msdownload/update/software/secu/2019/06/windows6.1-kb4503269-x64_d518b12868bb1202a03fbc33c2d716092ae9c2e2.msu" ],
+      "Windows Server 2008": [ "http://download.windowsupdate.com/c/msdownload/update/software/secu/2019/06/windows6.0-kb4503287-x64_3938da9a2635d2a6f7447e81121a0c91a43c3dd3.msu" ],
+      "Windows Server 2012 R2": [ "http://download.windowsupdate.com/d/msdownload/update/software/secu/2019/06/windows8.1-kb4503290-x64_b89d6a7b0c552bba293c60a41838d5c517e73c30.msu" ],
+      "Windows Server 2012": [ "http://download.windowsupdate.com/d/msdownload/update/software/secu/2019/06/windows8-rt-kb4503263-x64_a91a258e1ebaf70e2974b8009a9c2382fcad1241.msu" ],
+      "Windows Server 2016": [ "http://download.windowsupdate.com/c/msdownload/update/software/secu/2019/06/windows10.0-kb4503267-x64_51ff317097c854ffc5d9ee5badab6fcf7462d324.msu" ],
+      "Windows Server 2019": [ "http://download.windowsupdate.com/c/msdownload/update/software/secu/2019/06/windows10.0-kb4503327-x64_7bd62b3999caa3fd8d57338212e7c9676687ac68.msu" ]
+    }
+  }
+]

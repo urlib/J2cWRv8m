@@ -1,0 +1,13 @@
+{
+  "title": "CVE-2019-1040漏洞补丁",
+  "tip": "lib",
+  "name": "btpatch",
+  "type": "系统工具",
+  "ps": "<span style='color:red'>针对Windows Server 2008,2008 R2等，于2019年6月爆发的内网大杀器利用：CVE-2019-1040漏洞</span>",
+  "versions": "1.2",
+  "author": "宝塔",
+  "home": "http://www.bt.cn/bbs",
+  "date": "2019-05-15",
+  "default": false,
+  "display": 0
+}
